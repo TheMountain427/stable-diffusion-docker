@@ -57,7 +57,7 @@ ENV NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
 ENV NCCL_VERSION=2.17.1-1
 ENV NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
 ARG TARGETARCH
-LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
+#LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends     cuda-cudart-dev-12-1=${NV_CUDA_CUDART_DEV_VERSION}     cuda-command-line-tools-12-1=${NV_CUDA_LIB_VERSION}     cuda-minimal-build-12-1=${NV_CUDA_LIB_VERSION}     cuda-libraries-dev-12-1=${NV_CUDA_LIB_VERSION}     cuda-nvml-dev-12-1=${NV_NVML_DEV_VERSION}     ${NV_NVPROF_DEV_PACKAGE}     ${NV_LIBNPP_DEV_PACKAGE}     libcusparse-dev-12-1=${NV_LIBCUSPARSE_DEV_VERSION}     ${NV_LIBCUBLAS_DEV_PACKAGE}     ${NV_LIBNCCL_DEV_PACKAGE}     ${NV_CUDA_NSIGHT_COMPUTE_DEV_PACKAGE}     && rm -rf /var/lib/apt/lists/* # buildkit
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-mark hold ${NV_LIBCUBLAS_DEV_PACKAGE_NAME} ${NV_LIBNCCL_DEV_PACKAGE_NAME} # buildkit
 ENV LIBRARY_PATH=/usr/local/cuda/lib64/stubs
@@ -66,7 +66,7 @@ ENV NV_CUDNN_PACKAGE_NAME=libcudnn8
 ENV NV_CUDNN_PACKAGE=libcudnn8=8.9.0.131-1+cuda12.1
 ENV NV_CUDNN_PACKAGE_DEV=libcudnn8-dev=8.9.0.131-1+cuda12.1
 ARG TARGETARCH
-LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
+#LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
 LABEL com.nvidia.cudnn.version=8.9.0.131
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends     ${NV_CUDNN_PACKAGE}     ${NV_CUDNN_PACKAGE_DEV}     && apt-mark hold ${NV_CUDNN_PACKAGE_NAME}     && rm -rf /var/lib/apt/lists/* # buildkit
 SHELL [/bin/bash -o pipefail -c]
