@@ -32,7 +32,7 @@ ENV NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
 ENV NCCL_VERSION=2.17.1-1
 ENV NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
 ARG TARGETARCH
-LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
+#LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends     cuda-libraries-12-1=${NV_CUDA_LIB_VERSION}     ${NV_LIBNPP_PACKAGE}     cuda-nvtx-12-1=${NV_NVTX_VERSION}     libcusparse-12-1=${NV_LIBCUSPARSE_VERSION}     ${NV_LIBCUBLAS_PACKAGE}     ${NV_LIBNCCL_PACKAGE}     && rm -rf /var/lib/apt/lists/* # buildkit
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-mark hold ${NV_LIBCUBLAS_PACKAGE_NAME} ${NV_LIBNCCL_PACKAGE_NAME} # buildkit
 COPY entrypoint.d/ /opt/nvidia/entrypoint.d/ # buildkit
