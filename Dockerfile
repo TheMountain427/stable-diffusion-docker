@@ -69,7 +69,7 @@ ARG TARGETARCH
 ##LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
 #LABEL com.nvidia.cudnn.version=8.9.0.131
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends     ${NV_CUDNN_PACKAGE}     ${NV_CUDNN_PACKAGE_DEV}     && apt-mark hold ${NV_CUDNN_PACKAGE_NAME}     && rm -rf /var/lib/apt/lists/* # buildkit
-SHELL ["/bin/bash -o" "pipefail -c"]
+SHELL ["/bin/bash -o", "pipefail -c"]
 ENV DEBIAN_FRONTEND=noninteractive TZ=Europe/London PYTHONUNBUFFERED=1 SHELL=/bin/bash
 ARG PYTHON_VERSION=3.10
 COPY --chmod=755 ../../build/packages.sh /packages.sh # buildkit
