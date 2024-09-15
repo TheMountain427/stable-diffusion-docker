@@ -91,9 +91,9 @@ COPY --chmod=755 ../../scripts/* ./ # buildkit
 RUN |5 PYTHON_VERSION=3.10 INDEX_URL=https://download.pytorch.org/whl/cu121 TORCH_VERSION=2.1.2+cu121 XFORMERS_VERSION=0.0.23.post1 RUNPODCTL_VERSION=v1.14.3 /bin/bash -o pipefail -c mv /manage_venv.sh /usr/local/bin/manage_venv # buildkit
 ARG REQUIRED_CUDA_VERSION=12.1
 ENV REQUIRED_CUDA_VERSION=12.1
-SHELL [/bin/bash --login -c]
+SHELL ["/bin/bash --login -c"]
 CMD ["/start.sh"]
-SHELL [/bin/bash -o pipefail -c]
+SHELL ["/bin/bash -o", "pipefail -c"]
 ENV DEBIAN_FRONTEND=noninteractive TZ=Europe/London PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=on SHELL=/bin/bash
 RUN /bin/bash -o pipefail -c mkdir -p /sd-models # buildkit
 COPY sd_xl_base_1.0.safetensors /sd-models/sd_xl_base_1.0.safetensors # buildkit
@@ -119,7 +119,7 @@ ARG RELEASE=24.1.6
 ENV TEMPLATE_VERSION=24.1.6
 COPY --chmod=755 scripts/* ./ # buildkit
 COPY kohya_ss/accelerate.yaml ./ # buildkit
-SHELL [/bin/bash --login -c]
+SHELL ["/bin/bash --login -c"]
 CMD ["/start.sh"]
 
 
