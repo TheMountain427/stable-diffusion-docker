@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:22.04 AS base
+FROM docker.io/nvidia/cuda:12.1.0-base-ubuntu22.04 AS base
 ARG RELEASE
 ARG LAUNCHPAD_BUILD_ARCH
 #LABEL org.opencontainers.image.ref.name=ubuntu
