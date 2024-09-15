@@ -3,7 +3,7 @@ variable "REGISTRY" {
 }
 
 variable "REGISTRY_USER" {
-    default = "TheMountain427"
+    default = "themountain427"
 }
 
 variable "APP" {
