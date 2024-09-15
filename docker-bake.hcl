@@ -19,11 +19,11 @@ variable "CU_VERSION" {
 }
 
 variable "BASE_IMAGE_REPOSITORY" {
-    default = "ashleykza/runpod-base"
+    default = "docker.io/ubuntu"
 }
 
 variable "BASE_IMAGE_VERSION" {
-    default = "2.0.0"
+    default = "22.04"
 }
 
 variable "CUDA_VERSION" {
